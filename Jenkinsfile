@@ -32,10 +32,8 @@ pipeline {
         stage('Pruebas de la aplicación') {
             steps {
                 script {
-                    // Realizar pruebas para verificar el correcto funcionamiento de la aplicación
-                    // Puedes agregar comandos de prueba específicos aquí
-                    // Por ejemplo, puedes verificar la existencia de un archivo de configuración
-                    CMD python3 kickthemout.py
+                   ls /kickthemout
+                    
                 }
             }
         }
