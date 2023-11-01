@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        DOCKER_IMAGE_NAME = 'TPN7kickthemout'  // Nombre de tu imagen Docker
+        DOCKER_IMAGE_NAME = 'tpn7kickthemout'  // Nombre de tu imagen Docker
         DOCKER_HUB_REPO = 'dino08/tpn6-kickthemout'  // Cambia esto por tu DockerHub username/repo
         DOCKER_IMAGE_TAG = sh(script: 'date +%Y%m%d%H%M%S', returnStdout: true).trim()
         CONTAINER_NAME = 'TPN7'  // Nombre de tu contenedor Docker
