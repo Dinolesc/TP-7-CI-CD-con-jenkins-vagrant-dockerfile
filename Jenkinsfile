@@ -5,7 +5,7 @@ pipeline {
         DOCKER_IMAGE_NAME = 'tpn7kickthemout'  // Nombre de tu imagen Docker
         DOCKER_HUB_REPO = 'dino08/tpn6-kickthemout'  // Cambia esto por tu DockerHub username/repo
         DOCKER_IMAGE_TAG = sh(script: 'date +%Y%m%d%H%M%S', returnStdout: true).trim()
-        CONTAINER_NAME = 'TPN72'  // Nombre de tu contenedor Docker
+        CONTAINER_NAME = 'TPN7.3'  // Nombre de tu contenedor Docker
         
     }
 
