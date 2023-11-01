@@ -5,7 +5,7 @@ pipeline {
         DOCKER_IMAGE_NAME = 'tpn7kickthemout'  // Nombre de tu imagen Docker
         DOCKER_HUB_REPO = 'dino08/tpn6-kickthemout'  // Cambia esto por tu DockerHub username/repo
         DOCKER_IMAGE_TAG = sh(script: 'date +%Y%m%d%H%M%S', returnStdout: true).trim()
-        CONTAINER_NAME = 'TPN7.5'  // Nombre de tu contenedor Docker
+        CONTAINER_NAME = 'EITTPN7'  // Nombre de tu contenedor Docker
         
     }
 
@@ -33,7 +33,7 @@ pipeline {
             steps {
                 script {
                     // Verificar que el contenedor esté en ejecución
-                    def containerStatus = sh(returnStatus: true, script: 'docker ps -q -f name=TPN7.5')
+                    def containerStatus = sh(returnStatus: true, script: 'docker ps -q -f name=EITTPN7')
 
                     if (containerStatus == 0) {
                         currentBuild.result = 'SUCCESS'
