@@ -35,7 +35,7 @@ pipeline {
                     // Realizar pruebas para verificar el correcto funcionamiento de la aplicación
                     // Puedes agregar comandos de prueba específicos aquí
                     // Por ejemplo, puedes verificar la existencia de un archivo de configuración
-                    sh "docker exec ${CONTAINER_NAME} ls /ruta/a/archivo_de_configuracion"
+                    CMD python3 kickthemout.py
                 }
             }
         }
