@@ -5,7 +5,7 @@ pipeline {
         DOCKER_IMAGE_NAME = 'tpn7kickthemout'  // Nombre de tu imagen Docker
         DOCKER_HUB_REPO = 'dino08/tpn6-kickthemout'  // Cambia esto por tu DockerHub username/repo
         DOCKER_IMAGE_TAG = sh(script: 'date +%Y%m%d%H%M%S', returnStdout: true).trim()
-        CONTAINER_NAME = 'TPN7.3'  // Nombre de tu contenedor Docker
+        CONTAINER_NAME = 'TPN7.4'  // Nombre de tu contenedor Docker
         
     }
 
@@ -32,11 +32,19 @@ pipeline {
         stage('Pruebas de la aplicación') {
             steps {
                 script {
-                   ls /kickthemout
-                    
+                    // Verificar que el contenedor esté en ejecución
+                    def containerStatus = sh(returnStatus: true, script: 'docker ps -q -f name=TPN7.4')
+
+                    if (containerStatus == 0) {
+                        currentBuild.result = 'SUCCESS'
+                        echo 'La prueba de integridad pasó: el contenedor está en ejecución.'
+                    } else {
+                        currentBuild.result = 'FAILURE'
+                        error 'La prueba de integridad falló: el contenedor no se encuentra en ejecución.'
                 }
             }
         }
+    }      
 
         stage('Subir imagen a DockerHub') {
             steps {
