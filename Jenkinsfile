@@ -8,20 +8,12 @@ pipeline {
         CONTAINER_NAME = 'TPN7'  // Nombre de tu contenedor Docker
         
     }
-    stages {
-        stage('Prueba de Docker') {
-            steps {
-                script {
-                    sh 'docker --version'  // Comando de prueba de Docker
-                }
-            }
-        }
-    }
 
      stages {
           stage('Construir y etiquetar imagen') {
             steps {
                 script {
+                    sh 'docker --version'  // Comando de prueba de Docker
                     // Construir la imagen Docker y taggearla
                     sh "docker build -t ${DOCKER_IMAGE_NAME}:${DOCKER_IMAGE_TAG} ."
                 }
