@@ -9,18 +9,18 @@ pipeline {
         
     }
 
-    stages {
-        stage('Prueba de Docker') {
+        stages {
+          stage('Prueba de Docker') {
             steps {
                 script {
                     sh 'docker --version'  // Comando de prueba de Docker
-                }
-            }
-        }
-    }
+                 }
+             }
+         }
+     }
 
-    stages {
-        stage('Construir y etiquetar imagen') {
+        stages {
+          stage('Construir y etiquetar imagen') {
             steps {
                 script {
                     // Construir la imagen Docker y taggearla
