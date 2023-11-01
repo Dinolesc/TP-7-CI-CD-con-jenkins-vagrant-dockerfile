@@ -9,17 +9,7 @@ pipeline {
         
     }
 
-        stages {
-          stage('Prueba de Docker') {
-            steps {
-                script {
-                    sh 'docker --version'  // Comando de prueba de Docker
-                 }
-             }
-         }
-     }
-
-        stages {
+     stages {
           stage('Construir y etiquetar imagen') {
             steps {
                 script {
