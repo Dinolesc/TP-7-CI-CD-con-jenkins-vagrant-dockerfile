@@ -14,7 +14,7 @@ pipeline {
             steps {
                 script {
                     // Construir la imagen Docker y taggearla
-                    sudo sh "docker build -t ${DOCKER_IMAGE_NAME}:${DOCKER_IMAGE_TAG} ."
+                    sh "docker build -t ${DOCKER_IMAGE_NAME}:${DOCKER_IMAGE_TAG} ."
                 }
             }
         }
